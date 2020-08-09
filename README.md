@@ -1,0 +1,2 @@
+# Reservatorio0
+Este algoritmo é dividido em duas partes. 1° consiste na inserção de dados no programa, estes dados são: capacidade do reservatório, quantidade de chuva no mês e quantidade de água gasta no mês. 2° parte do código é a impressão dos dados processados se o reservatório ou cheio deverá ser informado para o usuário. Vale destacar que a quantidade de chuva e água gasta, altera a quantidade do mês seguinte.
