@@ -1,0 +1,70 @@
+#include <stdio.h>	//biblioteca de entrada e saida de dados
+#include <stdlib.h>	//biblioteca para alocar memoria
+#include <locale.h>	//biblioteca para aceitar acentos	
+#include <string.h>	//biblioteca para usar palavras
+
+int main() {
+
+	setlocale(LC_ALL, "portuguese"); // Aceitar acentuação
+
+	int  i,cap_max, miliC[13] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};	//variaveis numeros
+	int miliG[13] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };			//variaveis numeros
+	int disp_a[13] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };			//variaveis numeros
+	char mes[13][13] = { "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"}; //variaveis nomes
+
+	printf("\t\t\t\t\t\t\t\t\t\tGabriel M C Moreira - RU: 3329252\n");
+
+	printf("Qual a capacidade máxida do reservatório:"); //Definindo a capacidade do reservatório
+	scanf_s("%i", &cap_max);
+	printf("\n");
+
+	for (i = 0; i < 12; i++)
+	{
+		printf("Digite a quantidade de chuva do mês de %s:", mes[i]);//Definindo a quantidade de chuva do mês de Janeiro
+		scanf_s("%i", &miliC[i]);
+
+		printf("Digite a quantidade de água gasta no mês de %s:", mes[i]); //Definindo a quantidade de água gasta no mês de Janeiro
+		scanf_s("%i", &miliG[i]);
+
+		printf("==================================================\n");
+	}
+
+	 
+	(disp_a[0] = miliC[0] - miliG[0]              );
+	(disp_a[1] = (miliC[1] + disp_a[0]) - miliG[1]);
+	(disp_a[2] = (miliC[2] + disp_a[1]) - miliG[2]);
+	(disp_a[3] = (miliC[3] + disp_a[2]) - miliG[3]);
+	(disp_a[4] = (miliC[4] + disp_a[3]) - miliG[4]);				//Pegou os dados inseridos pelo usurário 
+	(disp_a[5] = (miliC[5] + disp_a[4]) - miliG[5]);				//Realizando o calculo da disponibilidade de água
+	(disp_a[6] = (miliC[6] + disp_a[5]) - miliG[6]);
+	(disp_a[7] = (miliC[7] + disp_a[6]) - miliG[7]);
+	(disp_a[8] = (miliC[8] + disp_a[7]) - miliG[8]);
+	(disp_a[9] = (miliC[9] + disp_a[8]) - miliG[9]);
+	(disp_a[10] = (miliC[10] + disp_a[9]) - miliG[10]);
+	(disp_a[11] = (miliC[11] + disp_a[10]) - miliG[11]);
+
+	printf("=================================================================\n");
+	printf("****************** Boletim Metereológico ************************\n");			//Apresentação dos dados 
+	printf("=================================================================\n\n");
+
+	printf("\t\t\t  .:Capacidade %i:.\n\n", cap_max); //Apresentação da capacidade máxima
+
+	printf("|Mês:\t\t\t|Chuva:\t\t\t|Uso da água\t\t|Disponibilidade de água:\n");	//tabela
+
+	for (int i = 0; i < 11; i++)
+	{
+		printf("|%s\t\t\t|%imm\t\t\t|%i\t\t\t|%imm\n", mes[i], miliC[i], miliG[i], disp_a[i]);
+		if (disp_a[i] <= 0) { printf("|Reservatório vazio     |\n"); }
+		if (disp_a[i] >= cap_max) { printf("|Reservatório cheio     |\n"); }
+	}
+
+	printf("=================================================================\n");
+	printf("****************** Boletim Metereológico ************************\n");
+	printf("=================================================================\n\n");
+
+
+
+
+	system("PAUSE");
+	return 0;
+}
